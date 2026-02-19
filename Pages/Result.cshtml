@@ -1,0 +1,44 @@
+@page
+@model PreTriagemApp.Pages.ResultModel
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<div class="clinic-shell">
+  <div class="clinic-card">
+
+    <div class="hero">
+      <h1>Resultado da orientação</h1>
+      <p>Educacional. Não é diagnóstico.</p>
+      <div class="badges">
+        <div class="badge-pill"><span class="badge-icon">✓</span> Urgência: @Model.Urgency</div>
+      </div>
+    </div>
+
+    <div class="clinic-body">
+      <h2 style="margin-top:0;">Sugestão: @Model.Specialty</h2>
+      <p style="color:var(--muted); font-weight:600;">@Model.Hint</p>
+
+      <hr />
+
+      <h3>Orientações específicas</h3>
+      <ul>
+        @foreach (var item in Model.SpecificTips)
+        {
+            <li>@item</li>
+        }
+      </ul>
+
+      <h3>Quando procurar ajuda</h3>
+      <ul>
+        @foreach (var item in Model.WhenToSeekCare)
+        {
+            <li>@item</li>
+        }
+      </ul>
+
+      <a class="btn" style="margin-top:10px;" asp-page="/Index">Refazer</a>
+    </div>
+
+  </div>
+</div>

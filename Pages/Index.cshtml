@@ -1,0 +1,103 @@
+﻿@page
+@model PreTriagemApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Pré-Triagem";
+}
+
+<div class="clinic-shell">
+  <div class="clinic-card">
+
+    <div class="hero">
+      <h1>Pré-Triagem Médica</h1>
+      <p>Projeto educacional: orienta urgência e especialidade. Não é diagnóstico.</p>
+
+      <div class="badges">
+        <div class="badge-pill"><span class="badge-icon">+</span> Saúde</div>
+        <div class="badge-pill"><span class="badge-icon">✓</span> Triagem</div>
+        <div class="badge-pill"><span class="badge-icon">i</span> Informativo</div>
+      </div>
+    </div>
+
+    <div class="clinic-body">
+      <form method="post">
+        <div class="clinic-grid">
+
+          <div>
+            <label>Idade</label>
+            <input asp-for="Age" type="number" min="0" max="120" />
+
+            <label>Febre</label>
+            <select asp-for="Fever">
+              <option>Não</option>
+              <option>Baixa</option>
+              <option>Alta</option>
+            </select>
+
+            <label>Dor (0–10)</label>
+            <input asp-for="Pain" type="number" min="0" max="10" />
+          </div>
+
+          <div>
+            <label>Sintomas</label>
+            <div class="checks">
+
+              <!-- Respiratório / otorrino -->
+              <label><input asp-for="Headache" type="checkbox" /> Dor de cabeça</label>
+              <label><input asp-for="StuffyNose" type="checkbox" /> Nariz entupido</label>
+              <label><input asp-for="RunnyNose" type="checkbox" /> Coriza</label>
+              <label><input asp-for="Sneezing" type="checkbox" /> Espirros</label>
+              <label><input asp-for="SoreThroat" type="checkbox" /> Dor de garganta</label>
+              <label><input asp-for="Hoarseness" type="checkbox" /> Rouquidão</label>
+              <label><input asp-for="Cough" type="checkbox" /> Tosse</label>
+              <label><input asp-for="Wheezing" type="checkbox" /> Chiado no peito</label>
+              <label><input asp-for="EarPain" type="checkbox" /> Dor no ouvido</label>
+              <label><input asp-for="FacialPain" type="checkbox" /> Dor/pressão na face</label>
+
+              <!-- Alertas -->
+              <label><input asp-for="ShortnessOfBreath" type="checkbox" /> Falta de ar (alerta)</label>
+              <label><input asp-for="ChestPain" type="checkbox" /> Dor no peito (alerta)</label>
+
+              <!-- Gastro -->
+              <label><input asp-for="Nausea" type="checkbox" /> Náusea</label>
+              <label><input asp-for="Vomiting" type="checkbox" /> Vômito</label>
+              <label><input asp-for="Diarrhea" type="checkbox" /> Diarreia</label>
+              <label><input asp-for="AbdominalPain" type="checkbox" /> Dor abdominal</label>
+
+              <!-- Urinário -->
+              <label><input asp-for="BurningUrination" type="checkbox" /> Ardor ao urinar</label>
+              <label><input asp-for="FrequentUrination" type="checkbox" /> Urinar muitas vezes</label>
+
+              <!-- Pele / alergia -->
+              <label><input asp-for="SkinRash" type="checkbox" /> Manchas na pele</label>
+              <label><input asp-for="Itching" type="checkbox" /> Coceira</label>
+              <label><input asp-for="SwellingFaceLips" type="checkbox" /> Inchaço face/lábios (alerta)</label>
+
+              <!-- Olhos -->
+              <label><input asp-for="BlurredVision" type="checkbox" /> Visão embaçada</label>
+              <label><input asp-for="EyePain" type="checkbox" /> Dor nos olhos</label>
+
+              <!-- Ortopedia -->
+              <label><input asp-for="BackPain" type="checkbox" /> Dor nas costas</label>
+              <label><input asp-for="JointPain" type="checkbox" /> Dor nas articulações</label>
+
+              <!-- Neuro -->
+              <label><input asp-for="Dizziness" type="checkbox" /> Tontura</label>
+              <label><input asp-for="Fainting" type="checkbox" /> Desmaio (alerta)</label>
+              <label><input asp-for="Confusion" type="checkbox" /> Confusão mental (alerta)</label>
+              <label><input asp-for="WeaknessOneSide" type="checkbox" /> Fraqueza em um lado (alerta)</label>
+
+            </div>
+
+            <div class="alert-soft">
+              ⚠ Se houver dor forte no peito, falta de ar importante, desmaio/confusão ou fraqueza em um lado do corpo, procure emergência.
+            </div>
+          </div>
+
+        </div>
+
+        <button class="btn-aqua" type="submit">Ver orientação</button>
+      </form>
+    </div>
+
+  </div>
+</div>
